@@ -43,6 +43,14 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/07/01/shell/">shell介绍与定义变量</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/06/25/laravel5.2error/">Larave中间件新特性与解决验证时出现的各种错误</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
                                     <a href="/2016/06/22/oprestyTwo/">OpenResty 之 Ngx lua API</a>
                                 </li>
                                 
@@ -122,7 +130,7 @@
                                 
                                 <li class="search-category-li mp-pjax">
                                     <a href="/categories/blog/">&nbsp;&nbsp;&nbsp;blog</a>
-                                    <small>12</small>
+                                    <small>14</small>
                                 </li>
                                 
                                 <li class="search-category-li mp-pjax">
@@ -149,6 +157,11 @@
                                 
                                 <li class="search-tag-li mp-pjax">
                                     <a href="/tags/C/">&nbsp;&nbsp;&nbsp;C</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/Larave/">&nbsp;&nbsp;&nbsp;Larave</a>
                                     <small>1</small>
                                 </li>
                                 
@@ -193,6 +206,11 @@
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/shell/">&nbsp;&nbsp;&nbsp;shell</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
                                     <a href="/tags/svn/">&nbsp;&nbsp;&nbsp;svn</a>
                                     <small>1</small>
                                 </li>
@@ -221,6 +239,10 @@
         </nav>
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
+                
+                    <a  data-pjax href="/2016/07/01/shell/">shell介绍与定义变量</a>
+                
+                    <a  data-pjax href="/2016/06/25/laravel5.2error/">Larave中间件新特性与解决验证时出现的各种错误</a>
                 
                     <a  data-pjax href="/2016/06/22/oprestyTwo/">OpenResty 之 Ngx lua API</a>
                 
@@ -260,6 +282,8 @@
                 
                     <a data-pjax href="/tags/C/">&nbsp;&nbsp;C</a>
                 
+                    <a data-pjax href="/tags/Larave/">&nbsp;&nbsp;Larave</a>
+                
                     <a data-pjax href="/tags/OpenResty/">&nbsp;&nbsp;OpenResty</a>
                 
                     <a data-pjax href="/tags/ab/">&nbsp;&nbsp;ab</a>
@@ -275,6 +299,8 @@
                     <a data-pjax href="/tags/nodejs/">&nbsp;&nbsp;nodejs</a>
                 
                     <a data-pjax href="/tags/redis/">&nbsp;&nbsp;redis</a>
+                
+                    <a data-pjax href="/tags/shell/">&nbsp;&nbsp;shell</a>
                 
                     <a data-pjax href="/tags/svn/">&nbsp;&nbsp;svn</a>
                 
@@ -316,6 +342,81 @@
   
 <main class="content" role="main">
 
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/swoole/'>swoole</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/05/04/swooleInstall/">swoole安装</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-05-04T00:10:26.000Z"
+                      itemprop="datePublished">2016-05-04</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                
+swoole 安装与使用swoole简介
+PHP语言的高性能网络通信框架，提供了PHP语言的异步多线程服务器，异步TCP/UDP网络客户端，异步MySQL，数据库连接池，AsyncTask，消息队列，毫秒定时器，异步文件读写，异步DNS查询。
+Swoole可以广泛应用于互联网、移动通信、企业软件、网络游戏、物联网、车联网、智能家庭等领域。 使用PHP+Swoole作为网络通信框架，可以使企业IT研发团队的效率大大提升，更加专注于开发创
+                
+            </p>
+            
+        </section>
+    </article>
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/C/'>C</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/03/13/C1/">C语言学习</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-03-13T17:20:26.000Z"
+                      itemprop="datePublished">2016-03-13</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                
+ 初探C语言平台介绍
+CentOS 6.7  vim  gcc
+
+编写第一个C源文件 hello.c （后缀必须为.c）#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+
+                        printf(&quot;Hello World!\n&quot;);
+
+                        exit(0);
+                
+            </p>
+            
+        </section>
+    </article>
     
     <article class="post">
 
@@ -415,86 +516,11 @@ ab命令对发出负载的计算机要求很低，不会占用很高的CPU和内
         </section>
     </article>
     
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/gulp/'>gulp</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/10/22/gulb/">gulp自动化构建工具</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-10-22T19:21:25.000Z"
-                      itemprop="datePublished">2015-10-22</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-gulp自动化构建工具简介gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成；使用她，我们不仅可以很愉快的编写代码，而且大大提高我们的工作效率。
-gulp能帮我们做什么?
-javascript语法的检测、合并，压缩。
-css的压缩、合并、sass/less的编译
-images的压缩、合并
-浏览器自动刷新
-部署文件生产替换
-监控文件变
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/git/'>git</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/09/21/git/">git的安装与使用</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-09-21T21:11:24.000Z"
-                      itemprop="datePublished">2015-09-21</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-Git简介Git是什么？最流行的分布式版本控制系统。
-Git有什么特点？免费而超级好用。
-Git安装在Linux上安装Git首先你可以试着输入git，看看系统有没有安装Git！
-$ git
-usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
-       [-p|--paginate|--no-pager] [--no-replace-objects]
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
     <nav class="pagination" role="pagination">
         
         <a data-pjax class="newer-posts" href="/">← Newer Posts</a>
         
-        <span class="page-number">Page 2 of 3</span>
+        <span class="page-number">Page 2 of 4</span>
         
         <a data-pjax class="older-posts" href="/page/3/">Older Posts →</a>
         
