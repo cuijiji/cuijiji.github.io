@@ -43,6 +43,18 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/06/22/oprestyTwo/">OpenResty</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/06/20/oprestyOne/">OpenResty</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/06/18/oprestyImstall/">OpenResty</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
                                     <a href="/2016/05/04/swooleInstall/">swoole安装</a>
                                 </li>
                                 
@@ -110,7 +122,7 @@
                                 
                                 <li class="search-category-li mp-pjax">
                                     <a href="/categories/blog/">&nbsp;&nbsp;&nbsp;blog</a>
-                                    <small>9</small>
+                                    <small>12</small>
                                 </li>
                                 
                                 <li class="search-category-li mp-pjax">
@@ -138,6 +150,11 @@
                                 <li class="search-tag-li mp-pjax">
                                     <a href="/tags/C/">&nbsp;&nbsp;&nbsp;C</a>
                                     <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/OpenResty/">&nbsp;&nbsp;&nbsp;OpenResty</a>
+                                    <small>3</small>
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
@@ -205,6 +222,12 @@
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
                 
+                    <a  data-pjax href="/2016/06/22/oprestyTwo/">OpenResty</a>
+                
+                    <a  data-pjax href="/2016/06/20/oprestyOne/">OpenResty</a>
+                
+                    <a  data-pjax href="/2016/06/18/oprestyImstall/">OpenResty</a>
+                
                     <a  data-pjax href="/2016/05/04/swooleInstall/">swoole安装</a>
                 
                     <a  data-pjax href="/2016/03/13/C1/">C语言学习</a>
@@ -236,6 +259,8 @@
                 
                 
                     <a data-pjax href="/tags/C/">&nbsp;&nbsp;C</a>
+                
+                    <a data-pjax href="/tags/OpenResty/">&nbsp;&nbsp;OpenResty</a>
                 
                     <a data-pjax href="/tags/ab/">&nbsp;&nbsp;ab</a>
                 
@@ -298,6 +323,122 @@
             <div class="tag-tile">
                 
                 
+                <a data-pjax href='/tags/OpenResty/'>OpenResty</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/06/22/oprestyTwo/">OpenResty</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-06-22T23:31:55.000Z"
+                      itemprop="datePublished">2016-06-22</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                
+ OpenResty 之 Ngx lua APINgx lua API
+Ngx lua API 包含40多个指令与120多个API
+
+参考资料
+https://www.nginx.com/resources/wiki/modules/lua/
+https://github.com/openresty/lua-nginx-module#nginx-api-for-lua
+
+阅读文档独自练习
+
+注意： 尽量调用ngx.lua里面的API 
+                
+            </p>
+            
+        </section>
+    </article>
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/OpenResty/'>OpenResty</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/06/20/oprestyOne/">OpenResty</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-06-20T21:20:38.000Z"
+                      itemprop="datePublished">2016-06-20</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                
+ OpenResty入门OpenResty第一个小实例插入ngxin的以下代码
+location /getstr {
+
+       content_by_lua_file lua/getstr.lua;
+
+   }
+在lua目录下面vim getstr.lua 加入以下代码
+local args = ngx.req.get_uri_args()  
+local salt = args.salt
+if not salt then
+ng
+                
+            </p>
+            
+        </section>
+    </article>
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/OpenResty/'>OpenResty</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/06/18/oprestyImstall/">OpenResty</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-06-18T22:20:29.000Z"
+                      itemprop="datePublished">2016-06-18</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                
+ 初识OpenRestyOpenResty介绍
+OpenResty ™ 是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。
+
+安装所需扩展yum -y install readline-devel pcre-devel openssl-devel
+下载wget https:
+                
+            </p>
+            
+        </section>
+    </article>
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
                 <a data-pjax href='/tags/swoole/'>swoole</a>
                 
                 
@@ -349,7 +490,7 @@ Swoole可以广泛应用于互联网、移动通信、企业软件、网络游�
             <p>
                 
                 
- 初探C语言（后续还会更新，请等待！）平台介绍
+ 初探C语言平台介绍
 CentOS 6.7  vim  gcc
 
 编写第一个C源文件 hello.c （后缀必须为.c）#include &lt;stdio.h&gt;
@@ -360,105 +501,7 @@ int main()
 
                         printf(&quot;Hello World!\n&quot;);
 
-                   
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/vagrant/'>vagrant</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/08/vagrant-basic-use/">vagrant基本用法</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-08T18:34:59.000Z"
-                      itemprop="datePublished">2016-03-08</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                vagrant windows下基本使用简介
-
-Vagrant是一个基于Ruby的工具，用于创建和部署虚拟化开发环境。它 使用Oracle的开源VirtualBox虚拟化系统，使用 Chef创建自动化虚拟环境
-我们可以通过 Vagrant 封装一个 Linux 的开发环境，分发给团队成员。成员可以在自己喜欢的桌面系统（Mac/Windows/Linux）上开发程序，代码却能统一在封装好的环境里运行，非常霸气
-
-安装安装vagrant和虚
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/svn/'>svn</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/02/svn-server-install/">linux下svn服务器搭建</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-02T16:57:47.000Z"
-                      itemprop="datePublished">2016-03-02</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                1、准备工作123456wget http://mirrors.cnnic.cn/apache/subversion/subversion-1.8.13.tar.gzwget http://apache.fayea.com//httpd/httpd-2.4.16.tar.gzwget http://apache.fayea.com//apr/apr-1.5.2.tar.gzwget http://apache.fayea.com//ap
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/ab/'>ab</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/02/19/performance-pressure-test-tools-ab/">性能压力测试工具ab</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-19T16:02:52.000Z"
-                      itemprop="datePublished">2016-02-19</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                1、命令原理ab是apachebench命令的缩写
-ab命令会创建很多的并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此可以测试各种web服务器如apache、nginx、IIS等的压力。
-ab命令对发出负载的计算机要求很低，不会占用很高的CPU和内存，但却可以给目标服务器巨大的负载，原理类似于CC，自己测试时需注意。
-2、命令的安装ab的安装非常简单，安装apache之后默认就有，源码安装的a
+                        exit(0);
                 
             </p>
             

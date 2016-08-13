@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>吉吉博客 | 思考与成长</title>
+  <title>OpenResty | 吉吉博客 | 思考与成长</title>
   <meta name="description" content="自我管理|知识管理|时间管理|阅读" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -292,7 +292,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">OpenResty</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -311,194 +311,117 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/OpenResty/' style='color:#D5D5D5'>OpenResty</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">OpenResty</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2016-06-22T23:31:55.000Z"
+                              itemprop="datePublished">2016-06-22</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/vagrant/'>vagrant</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/08/vagrant-basic-use/">vagrant基本用法</a>
-            </h1>
+        <section class="post-content">
+            <hr>
+<h2 id="OpenResty-之-Ngx-lua-API"><a href="#OpenResty-之-Ngx-lua-API" class="headerlink" title=" OpenResty 之 Ngx lua API"></a> OpenResty 之 Ngx lua API</h2><h4 id="Ngx-lua-API"><a href="#Ngx-lua-API" class="headerlink" title="Ngx lua API"></a>Ngx lua API</h4><blockquote>
+<p><strong>Ngx lua API 包含40多个指令与120多个API</strong></p>
+</blockquote>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+<p><a href="https://www.nginx.com/resources/wiki/modules/lua/" target="_blank" rel="external">https://www.nginx.com/resources/wiki/modules/lua/</a></p>
+<p><a href="https://github.com/openresty/lua-nginx-module#nginx-api-for-lua" target="_blank" rel="external">https://github.com/openresty/lua-nginx-module#nginx-api-for-lua</a></p>
+</blockquote>
+<p><strong>阅读文档独自练习</strong></p>
+<blockquote>
+<p>注意： 尽量调用ngx.lua里面的API 而不是Lua自己的API 因为后者会被阻塞</p>
+</blockquote>
+<h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><p>以sleep()举例 编辑Lua文件 加入</p>
+<pre><code>ngx.sleep(3)
+ngx.say(&quot;OK&quot;)
+</code></pre><p><strong>不会阻塞</strong> 而用lua的sleep() <strong>会阻塞</strong></p>
+<h4 id="连接mysql"><a href="#连接mysql" class="headerlink" title="连接mysql"></a>连接mysql</h4><p>编辑lua文件</p>
+<pre><code>local mysql = require &quot;resty.mysql&quot;
+local db, err = mysql:new()
+if not db then
+ngx.say(&quot;failed to instantiate mysql: &quot;, err)
+return
+end
+db:set_timeout(1000) -- 1 sec
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-08T18:34:59.000Z"
-                      itemprop="datePublished">2016-03-08</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                vagrant windows下基本使用简介
+local res, err, errno, sqlstate = db:connect{
+host = &quot;114.215.98.137&quot;,
+    port = 3306,
+    database = &quot;test&quot;,
+    user = &quot;myuser&quot;,
+    password = &quot;mypassword&quot;
+}
 
-Vagrant是一个基于Ruby的工具，用于创建和部署虚拟化开发环境。它 使用Oracle的开源VirtualBox虚拟化系统，使用 Chef创建自动化虚拟环境
-我们可以通过 Vagrant 封装一个 Linux 的开发环境，分发给团队成员。成员可以在自己喜欢的桌面系统（Mac/Windows/Linux）上开发程序，代码却能统一在封装好的环境里运行，非常霸气
+if not res then
+ngx.say(&quot;failed to instantiate mysql: &quot;, err, &quot;: &quot;, errno, &quot;&quot;, sqlstate)
+return
+end
 
-安装安装vagrant和虚
-                
-            </p>
-            
+ngx.say(&quot;connect to mysql.&quot;)
+</code></pre><h4 id="连接redis"><a href="#连接redis" class="headerlink" title="连接redis"></a>连接redis</h4><p>  编辑lua文件 建立连接</p>
+<pre><code>  local redis = require &quot;resty.redis&quot;
+local red = redis:new()
+
+red:set_timeout(1000) -- 1 sec
+
+-- or connect to a unix domain socket file listened
+-- by a redis server:
+--     local ok, err = red:connect(&quot;unix:/path/to/redis.sock&quot;)
+
+local ok, err = red:connect(&quot;114.215.98.137&quot;, 6379)
+if not ok then
+ngx.say(&quot;failed to connect: &quot;, err)
+return
+end
+ngx.say(&quot;connect ok&quot;)
+</code></pre><p>继续编辑lua文件 创建一个表</p>
+<pre><code>local ok, err = red:set(&quot;name&quot;, &quot;cuijiji&quot;)
+if not ok then
+ngx.say(&quot;failed!!!&quot;)
+return
+end
+local val, err = red:get(&quot;name&quot;)
+if not val then
+ngx.say(&quot;failed!!!&quot;)
+return
+end
+ngx.say(val)
+</code></pre>
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/svn/'>svn</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/02/svn-server-install/">linux下svn服务器搭建</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-02T16:57:47.000Z"
-                      itemprop="datePublished">2016-03-02</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                1、准备工作123456wget http://mirrors.cnnic.cn/apache/subversion/subversion-1.8.13.tar.gzwget http://apache.fayea.com//httpd/httpd-2.4.16.tar.gzwget http://apache.fayea.com//apr/apr-1.5.2.tar.gzwget http://apache.fayea.com//ap
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/ab/'>ab</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/02/19/performance-pressure-test-tools-ab/">性能压力测试工具ab</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-19T16:02:52.000Z"
-                      itemprop="datePublished">2016-02-19</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                1、命令原理ab是apachebench命令的缩写
-ab命令会创建很多的并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此可以测试各种web服务器如apache、nginx、IIS等的压力。
-ab命令对发出负载的计算机要求很低，不会占用很高的CPU和内存，但却可以给目标服务器巨大的负载，原理类似于CC，自己测试时需注意。
-2、命令的安装ab的安装非常简单，安装apache之后默认就有，源码安装的a
-                
-            </p>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/gulp/'>gulp</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/10/22/gulb/">gulp自动化构建工具</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-10-22T19:21:25.000Z"
-                      itemprop="datePublished">2015-10-22</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-gulp自动化构建工具简介gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成；使用她，我们不仅可以很愉快的编写代码，而且大大提高我们的工作效率。
-gulp能帮我们做什么?
-javascript语法的检测、合并，压缩。
-css的压缩、合并、sass/less的编译
-images的压缩、合并
-浏览器自动刷新
-部署文件生产替换
-监控文件变
-                
-            </p>
+            <a class="share-button" data-original-title title>Share this Post</a>
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/git/'>git</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/09/21/git/">git的安装与使用</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-09-21T21:11:24.000Z"
-                      itemprop="datePublished">2015-09-21</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-Git简介Git是什么？最流行的分布式版本控制系统。
-Git有什么特点？免费而超级好用。
-Git安装在Linux上安装Git首先你可以试着输入git，看看系统有没有安装Git！
-$ git
-usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
-       [-p|--paginate|--no-pager] [--no-replace-objects]
-
-                
-            </p>
+            <a data-pjax class="older-posts" href="/2016/06/20/oprestyOne/">Next Post →</a>
             
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <a data-pjax class="newer-posts" href="/">← Newer Posts</a>
-        
-        <span class="page-number">Page 2 of 3</span>
-        
-        <a data-pjax class="older-posts" href="/page/3/">Older Posts →</a>
-        
-    </nav>
 </main>
 
 

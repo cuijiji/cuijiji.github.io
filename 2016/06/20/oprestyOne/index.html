@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>吉吉博客 | 思考与成长</title>
+  <title>OpenResty | 吉吉博客 | 思考与成长</title>
   <meta name="description" content="自我管理|知识管理|时间管理|阅读" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -292,7 +292,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">OpenResty</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -311,194 +311,79 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/OpenResty/' style='color:#D5D5D5'>OpenResty</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">OpenResty</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2016-06-20T21:20:38.000Z"
+                              itemprop="datePublished">2016-06-20</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/vagrant/'>vagrant</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/08/vagrant-basic-use/">vagrant基本用法</a>
-            </h1>
+        <section class="post-content">
+            <hr>
+<h2 id="OpenResty入门"><a href="#OpenResty入门" class="headerlink" title=" OpenResty入门"></a> OpenResty入门</h2><h4 id="OpenResty第一个小实例"><a href="#OpenResty第一个小实例" class="headerlink" title="OpenResty第一个小实例"></a>OpenResty第一个小实例</h4><p>插入ngxin的以下代码</p>
+<pre><code>location /getstr {
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-08T18:34:59.000Z"
-                      itemprop="datePublished">2016-03-08</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                vagrant windows下基本使用简介
+       content_by_lua_file lua/getstr.lua;
 
-Vagrant是一个基于Ruby的工具，用于创建和部署虚拟化开发环境。它 使用Oracle的开源VirtualBox虚拟化系统，使用 Chef创建自动化虚拟环境
-我们可以通过 Vagrant 封装一个 Linux 的开发环境，分发给团队成员。成员可以在自己喜欢的桌面系统（Mac/Windows/Linux）上开发程序，代码却能统一在封装好的环境里运行，非常霸气
+   }
+</code></pre><p>在lua目录下面vim getstr.lua 加入以下代码</p>
+<pre><code>local args = ngx.req.get_uri_args()  
+local salt = args.salt
+if not salt then
+ngx.exit(ngx.HTTP_BAD_REQUEST)
+end
 
-安装安装vagrant和虚
-                
-            </p>
-            
+local string = ngx.md5(ngx.time() .. salt)
+ngx.say(string)
+</code></pre><h4 id="重新加载配置文件"><a href="#重新加载配置文件" class="headerlink" title="重新加载配置文件"></a>重新加载配置文件</h4><p>usr/local/openresty/nginx/sbin/nginx  -c /usr/local/openresty/nginx/conf/nginx.conf -p /usr/local/openresty/nginx/ -s reload</p>
+<p>访问服务器的/test/会看见<br>                <strong>md5的字符串</strong></p>
+<h4 id="不需要每次都重启的设定"><a href="#不需要每次都重启的设定" class="headerlink" title="不需要每次都重启的设定"></a>不需要每次都重启的设定</h4><p><strong>参考文档</strong></p>
+<blockquote>
+<p><a href="https://github.com/openresty/lua-nginx-module#lua_code_cache" target="_blank" rel="external">https://github.com/openresty/lua-nginx-module#lua_code_cache</a></p>
+</blockquote>
+<p> nginx.conf 文件中加入 <strong>lua_code_cache off;</strong></p>
+<blockquote>
+<p>context: http, server, location, location if(可用在以上位置)</p>
+</blockquote>
+<h4 id="重新加载配置文件-1"><a href="#重新加载配置文件-1" class="headerlink" title="重新加载配置文件"></a>重新加载配置文件</h4><p>看见这样一行提示说明你成功了</p>
+<p><strong>nginx: [alert] lua_code_cache is off; this will hurt performance in /usr/local/openresty/nginx/conf/nginx.conf:38</strong></p>
+<p>注意<strong>只适用于本地开发。生产环境不建议用会大大影响效率！！！</strong></p>
+
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/svn/'>svn</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/03/02/svn-server-install/">linux下svn服务器搭建</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-03-02T16:57:47.000Z"
-                      itemprop="datePublished">2016-03-02</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                1、准备工作123456wget http://mirrors.cnnic.cn/apache/subversion/subversion-1.8.13.tar.gzwget http://apache.fayea.com//httpd/httpd-2.4.16.tar.gzwget http://apache.fayea.com//apr/apr-1.5.2.tar.gzwget http://apache.fayea.com//ap
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/ab/'>ab</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/02/19/performance-pressure-test-tools-ab/">性能压力测试工具ab</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-19T16:02:52.000Z"
-                      itemprop="datePublished">2016-02-19</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                1、命令原理ab是apachebench命令的缩写
-ab命令会创建很多的并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此可以测试各种web服务器如apache、nginx、IIS等的压力。
-ab命令对发出负载的计算机要求很低，不会占用很高的CPU和内存，但却可以给目标服务器巨大的负载，原理类似于CC，自己测试时需注意。
-2、命令的安装ab的安装非常简单，安装apache之后默认就有，源码安装的a
-                
-            </p>
+            <a data-pjax class="newer-posts" href="/2016/06/22/oprestyTwo/">← Prev Post</a>
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/gulp/'>gulp</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/10/22/gulb/">gulp自动化构建工具</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-10-22T19:21:25.000Z"
-                      itemprop="datePublished">2015-10-22</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-gulp自动化构建工具简介gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成；使用她，我们不仅可以很愉快的编写代码，而且大大提高我们的工作效率。
-gulp能帮我们做什么?
-javascript语法的检测、合并，压缩。
-css的压缩、合并、sass/less的编译
-images的压缩、合并
-浏览器自动刷新
-部署文件生产替换
-监控文件变
-                
-            </p>
+            <a class="share-button" data-original-title title>Share this Post</a>
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/git/'>git</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/09/21/git/">git的安装与使用</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-09-21T21:11:24.000Z"
-                      itemprop="datePublished">2015-09-21</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-Git简介Git是什么？最流行的分布式版本控制系统。
-Git有什么特点？免费而超级好用。
-Git安装在Linux上安装Git首先你可以试着输入git，看看系统有没有安装Git！
-$ git
-usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
-       [-p|--paginate|--no-pager] [--no-replace-objects]
-
-                
-            </p>
+            <a data-pjax class="older-posts" href="/2016/06/18/oprestyImstall/">Next Post →</a>
             
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <a data-pjax class="newer-posts" href="/">← Newer Posts</a>
-        
-        <span class="page-number">Page 2 of 3</span>
-        
-        <a data-pjax class="older-posts" href="/page/3/">Older Posts →</a>
-        
-    </nav>
 </main>
 
 
