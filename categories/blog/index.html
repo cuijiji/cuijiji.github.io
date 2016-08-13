@@ -43,6 +43,10 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/08/11/lnmp/">快速搭建属于自己的lnmp</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
                                     <a href="/2016/07/25/mysql/">Mysql数据库优化</a>
                                 </li>
                                 
@@ -134,7 +138,7 @@
                                 
                                 <li class="search-category-li mp-pjax">
                                     <a href="/categories/blog/">&nbsp;&nbsp;&nbsp;blog</a>
-                                    <small>15</small>
+                                    <small>16</small>
                                 </li>
                                 
                                 <li class="search-category-li mp-pjax">
@@ -200,6 +204,11 @@
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/lnmp/">&nbsp;&nbsp;&nbsp;lnmp</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
                                     <a href="/tags/markdown/">&nbsp;&nbsp;&nbsp;markdown</a>
                                     <small>1</small>
                                 </li>
@@ -248,6 +257,8 @@
         </nav>
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
+                
+                    <a  data-pjax href="/2016/08/11/lnmp/">快速搭建属于自己的lnmp</a>
                 
                     <a  data-pjax href="/2016/07/25/mysql/">Mysql数据库优化</a>
                 
@@ -307,6 +318,8 @@
                 
                     <a data-pjax href="/tags/gulp/">&nbsp;&nbsp;gulp</a>
                 
+                    <a data-pjax href="/tags/lnmp/">&nbsp;&nbsp;lnmp</a>
+                
                     <a data-pjax href="/tags/markdown/">&nbsp;&nbsp;markdown</a>
                 
                     <a data-pjax href="/tags/nodejs/">&nbsp;&nbsp;nodejs</a>
@@ -355,6 +368,48 @@
   
 <main class="content" role="main">
 
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/lnmp/'>lnmp</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/08/11/lnmp/">快速搭建属于自己的lnmp</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-08-11T18:33:35.000Z"
+                      itemprop="datePublished">2016-08-11</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                
+现在还有人不会搭建lnmp，今天我带大家快速搭建一个
+
+nginx安装下载
+wget http://nginx.org/download/nginx-1.9.12.tar.gz
+解压
+tar -zxvf nginx-1.8.0.tar.gz
+安装依赖
+yum install -y pcre pcre-devel pcre-devel
+老三步
+./configure --prefix=/usr/local/nginx
+make
+make
+                
+            </p>
+            
+        </section>
+    </article>
     
     <article class="post">
 
@@ -514,49 +569,9 @@ https://github.com/openresty/lua-nginx-module#nginx-api-for-lua
         </section>
     </article>
     
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/OpenResty/'>OpenResty</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/06/20/oprestyOne/">OpenResty入门</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-06-20T21:20:38.000Z"
-                      itemprop="datePublished">2016-06-20</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                OpenResty第一个小实例插入ngxin的以下代码
-location /getstr {
-
-       content_by_lua_file lua/getstr.lua;
-
-   }
-在lua目录下面vim getstr.lua 加入以下代码
-local args = ngx.req.get_uri_args()  
-local salt = args.salt
-if not salt then
-ngx.exit(ngx.HT
-                
-            </p>
-            
-        </section>
-    </article>
-    
     <nav class="pagination" role="pagination">
         
-        <span class="page-number">Page 1 of 3</span>
+        <span class="page-number">Page 1 of 4</span>
         
         <a data-pjax class="older-posts" href="/categories/blog/page/2/">Older Posts →</a>
         
