@@ -374,8 +374,7 @@
     </span>
 
         <section class="post-content">
-            <hr>
-<h2 id="解决Laravel5-2中间件新特性与解决验证时出现的各种错误"><a href="#解决Laravel5-2中间件新特性与解决验证时出现的各种错误" class="headerlink" title=" 解决Laravel5.2中间件新特性与解决验证时出现的各种错误"></a> 解决Laravel5.2中间件新特性与解决验证时出现的各种错误</h2><h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>我有一些麻烦在关于laravel5.2的验证上；和正常的写代码一样，我在验证的时候加上了error;<br>但是一刷新页面出现了这个错误。</p>
+            <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>我有一些麻烦在关于laravel5.2的验证上；和正常的写代码一样，我在验证的时候加上了error;<br>但是一刷新页面出现了这个错误。</p>
 <pre><code>Undefined variable: errors
 </code></pre><h4 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h4><p>首先我想到的就是变量问题，便去查询，去掌管error的文件中去查看，所以打开 <strong>app/Http/Kernel.php</strong><br>看到的是这样的<br>    protected $middleware = [<br>    \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,<br>    ];</p>
 <pre><code>protected $middlewareGroups = [

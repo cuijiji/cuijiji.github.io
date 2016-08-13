@@ -379,10 +379,9 @@
         <section class="post-excerpt">
             <p>
                 
-                
- 解决Laravel5.2中间件新特性与解决验证时出现的各种错误前言我有一些麻烦在关于laravel5.2的验证上；和正常的写代码一样，我在验证的时候加上了error;但是一刷新页面出现了这个错误。
+                前言我有一些麻烦在关于laravel5.2的验证上；和正常的写代码一样，我在验证的时候加上了error;但是一刷新页面出现了这个错误。
 Undefined variable: errors
-问题分析首先我想到的就是变量问题，便去查询，去掌管error的文件中去查看，所以打开 app/Http/Kernel.php看到的是这样的    protected $middlewa
+问题分析首先我想到的就是变量问题，便去查询，去掌管error的文件中去查看，所以打开 app/Http/Kernel.php看到的是这样的    protected $middleware = [    \Illuminate\Foundation\
                 
             </p>
             

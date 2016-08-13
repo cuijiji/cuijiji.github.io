@@ -379,8 +379,7 @@
         <section class="post-excerpt">
             <p>
                 
-                
- OpenResty 之 Ngx lua APINgx lua API
+                Ngx lua API
 Ngx lua API 包含40多个指令与120多个API
 
 参考资料
@@ -389,7 +388,9 @@ https://github.com/openresty/lua-nginx-module#nginx-api-for-lua
 
 阅读文档独自练习
 
-注意： 尽量调用ngx.lua里面的API 
+注意： 尽量调用ngx.lua里面的API 而不是Lua自己的API 因为后者会被阻塞
+
+举例
                 
             </p>
             
@@ -419,8 +420,7 @@ https://github.com/openresty/lua-nginx-module#nginx-api-for-lua
         <section class="post-excerpt">
             <p>
                 
-                
- OpenResty入门OpenResty第一个小实例插入ngxin的以下代码
+                OpenResty第一个小实例插入ngxin的以下代码
 location /getstr {
 
        content_by_lua_file lua/getstr.lua;
@@ -430,7 +430,7 @@ location /getstr {
 local args = ngx.req.get_uri_args()  
 local salt = args.salt
 if not salt then
-ng
+ngx.exit(ngx.HT
                 
             </p>
             
@@ -460,12 +460,11 @@ ng
         <section class="post-excerpt">
             <p>
                 
-                
- 初识OpenRestyOpenResty介绍
+                OpenResty介绍
 OpenResty ™ 是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。
 
 安装所需扩展yum -y install readline-devel pcre-devel openssl-devel
-下载wget https:
+下载wget https://openresty.o
                 
             </p>
             
