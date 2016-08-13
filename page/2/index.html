@@ -43,6 +43,10 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/07/25/ss/">Mysql数据库优化</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
                                     <a href="/2016/07/01/shell/">shell介绍与定义变量</a>
                                 </li>
                                 
@@ -130,7 +134,7 @@
                                 
                                 <li class="search-category-li mp-pjax">
                                     <a href="/categories/blog/">&nbsp;&nbsp;&nbsp;blog</a>
-                                    <small>14</small>
+                                    <small>15</small>
                                 </li>
                                 
                                 <li class="search-category-li mp-pjax">
@@ -162,6 +166,11 @@
                                 
                                 <li class="search-tag-li mp-pjax">
                                     <a href="/tags/Larave/">&nbsp;&nbsp;&nbsp;Larave</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/Mysql数据库优化/">&nbsp;&nbsp;&nbsp;Mysql数据库优化</a>
                                     <small>1</small>
                                 </li>
                                 
@@ -240,6 +249,8 @@
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
                 
+                    <a  data-pjax href="/2016/07/25/ss/">Mysql数据库优化</a>
+                
                     <a  data-pjax href="/2016/07/01/shell/">shell介绍与定义变量</a>
                 
                     <a  data-pjax href="/2016/06/25/laravel5.2error/">Larave中间件新特性与解决验证时出现的各种错误</a>
@@ -283,6 +294,8 @@
                     <a data-pjax href="/tags/C/">&nbsp;&nbsp;C</a>
                 
                     <a data-pjax href="/tags/Larave/">&nbsp;&nbsp;Larave</a>
+                
+                    <a data-pjax href="/tags/Mysql数据库优化/">&nbsp;&nbsp;Mysql数据库优化</a>
                 
                     <a data-pjax href="/tags/OpenResty/">&nbsp;&nbsp;OpenResty</a>
                 
@@ -342,6 +355,41 @@
   
 <main class="content" role="main">
 
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/OpenResty/'>OpenResty</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/06/18/oprestyImstall/">初识OpenResty</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-06-18T22:20:29.000Z"
+                      itemprop="datePublished">2016-06-18</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                
+ 初识OpenRestyOpenResty介绍
+OpenResty ™ 是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。
+
+安装所需扩展yum -y install readline-devel pcre-devel openssl-devel
+下载wget https:
+                
+            </p>
+            
+        </section>
+    </article>
     
     <article class="post">
 
@@ -477,39 +525,6 @@ Vagrant是一个基于Ruby的工具，用于创建和部署虚拟化开发环境
             <p>
                 
                 1、准备工作123456wget http://mirrors.cnnic.cn/apache/subversion/subversion-1.8.13.tar.gzwget http://apache.fayea.com//httpd/httpd-2.4.16.tar.gzwget http://apache.fayea.com//apr/apr-1.5.2.tar.gzwget http://apache.fayea.com//ap
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/ab/'>ab</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2016/02/19/performance-pressure-test-tools-ab/">性能压力测试工具ab</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-19T16:02:52.000Z"
-                      itemprop="datePublished">2016-02-19</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                1、命令原理ab是apachebench命令的缩写
-ab命令会创建很多的并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此可以测试各种web服务器如apache、nginx、IIS等的压力。
-ab命令对发出负载的计算机要求很低，不会占用很高的CPU和内存，但却可以给目标服务器巨大的负载，原理类似于CC，自己测试时需注意。
-2、命令的安装ab的安装非常简单，安装apache之后默认就有，源码安装的a
                 
             </p>
             

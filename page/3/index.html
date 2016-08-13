@@ -43,6 +43,10 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/07/25/ss/">Mysql数据库优化</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
                                     <a href="/2016/07/01/shell/">shell介绍与定义变量</a>
                                 </li>
                                 
@@ -130,7 +134,7 @@
                                 
                                 <li class="search-category-li mp-pjax">
                                     <a href="/categories/blog/">&nbsp;&nbsp;&nbsp;blog</a>
-                                    <small>14</small>
+                                    <small>15</small>
                                 </li>
                                 
                                 <li class="search-category-li mp-pjax">
@@ -162,6 +166,11 @@
                                 
                                 <li class="search-tag-li mp-pjax">
                                     <a href="/tags/Larave/">&nbsp;&nbsp;&nbsp;Larave</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/Mysql数据库优化/">&nbsp;&nbsp;&nbsp;Mysql数据库优化</a>
                                     <small>1</small>
                                 </li>
                                 
@@ -240,6 +249,8 @@
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
                 
+                    <a  data-pjax href="/2016/07/25/ss/">Mysql数据库优化</a>
+                
                     <a  data-pjax href="/2016/07/01/shell/">shell介绍与定义变量</a>
                 
                     <a  data-pjax href="/2016/06/25/laravel5.2error/">Larave中间件新特性与解决验证时出现的各种错误</a>
@@ -283,6 +294,8 @@
                     <a data-pjax href="/tags/C/">&nbsp;&nbsp;C</a>
                 
                     <a data-pjax href="/tags/Larave/">&nbsp;&nbsp;Larave</a>
+                
+                    <a data-pjax href="/tags/Mysql数据库优化/">&nbsp;&nbsp;Mysql数据库优化</a>
                 
                     <a data-pjax href="/tags/OpenResty/">&nbsp;&nbsp;OpenResty</a>
                 
@@ -342,6 +355,39 @@
   
 <main class="content" role="main">
 
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/ab/'>ab</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/02/19/performance-pressure-test-tools-ab/">性能压力测试工具ab</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-02-19T16:02:52.000Z"
+                      itemprop="datePublished">2016-02-19</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                1、命令原理ab是apachebench命令的缩写
+ab命令会创建很多的并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此可以测试各种web服务器如apache、nginx、IIS等的压力。
+ab命令对发出负载的计算机要求很低，不会占用很高的CPU和内存，但却可以给目标服务器巨大的负载，原理类似于CC，自己测试时需注意。
+2、命令的安装ab的安装非常简单，安装apache之后默认就有，源码安装的a
+                
+            </p>
+            
+        </section>
+    </article>
     
     <article class="post">
 
@@ -481,41 +527,6 @@ configure --with-php-config=/usr/local/
                 
 redis是什么:
 Redis is an open source, BSD licensed, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.redis是开源,BSD许可,高级的key-val
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/nodejs/'>nodejs</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/06/22/nodejs/">安装nodejs</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-06-22T10:11:26.000Z"
-                      itemprop="datePublished">2015-06-22</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-LINUX下安装nodejs–
-下载（你也可以去官网自行下载）$ wget https://nodejs.org/dist/v4.3.1/node-v4.3.1-linux-x64.tar.xz
-然后解压$ xz -d xxx.tar.xz 
-$ tar xvf xxx.tar
-最后自行软连到bin下面$ ln -s /root/src/node-v4.3.1-linux-x64/bin/node /usr/local/bin/nod
                 
             </p>
             
